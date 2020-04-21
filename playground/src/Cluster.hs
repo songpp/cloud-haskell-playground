@@ -4,10 +4,12 @@ module Cluster where
 import Network.Transport.TCP (defaultTCPAddr, createTransport, defaultTCPParameters)
 import Control.Distributed.Process
 import Control.Distributed.Process.Closure
-import Control.Distributed.Process.Node
-import Control.Concurrent (threadDelay)
-import Control.Monad (forever)
+import Control.Distributed.Process.Node hiding (newLocalNode)
 
+import Control.Distributed.Process.Backend.SimpleLocalnet
+
+import Control.Concurrent (threadDelay)
+import Control.Monad (forever, forM_)
 
 replyBack :: (ProcessId, String) -> Process ()
 replyBack (sender, msg) = send sender msg
@@ -24,17 +26,18 @@ remotable ['sampleTask]
 myRemoteTable :: RemoteTable
 myRemoteTable = Cluster.__remoteTable initRemoteTable
 
+startNode host port = do
+  backend <- initializeBackend host port myRemoteTable
+  node <- newLocalNode backend 
+  runProcess node $ do
+    echoPid <- spawnLocal $ forever $ receiveWait [match logMessage, match replyBack]
+    liftIO $ threadDelay 20000000
 
-startMaster = do
-  bindResult <- createTransport (defaultTCPAddr "127.0.0.1" "10501") defaultTCPParameters 
-  case bindResult of
-    Right t -> do 
-      node <- newLocalNode t myRemoteTable
-      runEcho node
-      runRemote node
-      closeLocalNode node
-    Left e -> error (show e)
-  return ()
+startMaster host port = do
+  backend <- initializeBackend host port myRemoteTable
+  node <- newLocalNode backend 
+  peers <- findPeers backend 1000000
+  runProcess node $ forM_ peers $ \peer -> nsendRemote peer  "echo-server" "hello!"
 
 runRemote node = runProcess node $ do
   us <- getSelfNode
@@ -51,6 +54,8 @@ runEcho node = runProcess node $ do
 
     self <- getSelfPid 
     send echoPid (self, "hello" :: String)
+
+    send echoPid "what ever"
 
     m <- expectTimeout 1000000
     case m of 

@@ -32,7 +32,6 @@ startGrpcServer = do
       handlers
       [gzip]
 
-
 waiGrpcApp :: IO ()
 waiGrpcApp = run 3000 $ grpcApp [] handlers
 

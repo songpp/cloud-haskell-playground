@@ -50,9 +50,11 @@ extra-deps:
 - http2-client-0.9.0.0
 - http2-grpc-proto-lens-0.1.0.0
 - network-transport-0.5.4
+- network-multicast-0.3.2
 - ../distributed-process-0.7.4
 - ../distributed-static-0.3.9
 - ../network-transport-tcp-0.7.0
+- ../distributed-process-simplelocalnet-0.2.4
 
 # Override default flag values for local packages and extra-deps
 # flags: {}

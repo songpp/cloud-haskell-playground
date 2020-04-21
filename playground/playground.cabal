@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 218ae4e3a74ce9dda4609abd5a898c66345e0991f5ccab7e8ffaf4aac7d81519
+-- hash: d9930b3e5a8a83a1eac6675eeda847e349c7a8144e363cdb416528a3eabc022a
 
 name:           playground
 version:        0.1.0.0
@@ -55,6 +55,7 @@ library
     , bytestring
     , directory
     , distributed-process
+    , distributed-process-simplelocalnet
     , distributed-static
     , http2-client-grpc
     , http2-grpc-proto-lens
@@ -87,6 +88,7 @@ executable playground-exe
     , bytestring
     , directory
     , distributed-process
+    , distributed-process-simplelocalnet
     , distributed-static
     , http2-client-grpc
     , http2-grpc-proto-lens
@@ -121,6 +123,7 @@ test-suite playground-test
     , bytestring
     , directory
     , distributed-process
+    , distributed-process-simplelocalnet
     , distributed-static
     , http2-client-grpc
     , http2-grpc-proto-lens
