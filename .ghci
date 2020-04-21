@@ -1,0 +1,8 @@
+:set prompt " %s \n > "
+
+
+:set -package distributed-process
+:set -package distributed-processstatic
+:set -package network-transport-tcp
+:set -package network-transport-tests
+:set -package playground

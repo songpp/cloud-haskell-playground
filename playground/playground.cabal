@@ -1,0 +1,143 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 40cd89e330ec65a736cd1affd7643ee617f09d167cb57d28e726d00731cfc3d4
+
+name:           playground
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/playground#readme>
+homepage:       https://github.com/songpp/playground#readme
+bug-reports:    https://github.com/songpp/playground/issues
+author:         spp
+maintainer:     example@example.com
+copyright:      2020 spp
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+data-files:
+    certs/Client.crt
+    certs/Client.csr
+    certs/Client.key
+    certs/My_Root_CA.crl
+    certs/My_Root_CA.crt
+    certs/My_Root_CA.key
+    certs/playground.crl
+    certs/playground.crt
+    certs/playground.key
+    certs/Server.crt
+    certs/Server.csr
+    certs/Server.key
+
+source-repository head
+  type: git
+  location: https://github.com/songpp/playground
+
+library
+  exposed-modules:
+      Cluster
+      GrpcServer
+      Lib
+      Proto.Protos.RaftGrpc
+      Proto.Protos.RaftGrpc_Fields
+  other-modules:
+      Paths_playground
+  hs-source-dirs:
+      src
+      gen
+  build-depends:
+      base >=4.7 && <5
+    , bytestring
+    , directory
+    , distributed-process
+    , distributed-static
+    , http2-client-grpc
+    , http2-grpc-proto-lens
+    , http2-grpc-types
+    , lens
+    , lens-family
+    , mwc-random
+    , network-transport
+    , network-transport-tcp
+    , proto-lens
+    , proto-lens-runtime
+    , stm
+    , text
+    , timer-wheel
+    , wai
+    , warp
+    , warp-grpc
+    , warp-tls
+  default-language: Haskell2010
+
+executable playground-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_playground
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , bytestring
+    , directory
+    , distributed-process
+    , distributed-static
+    , http2-client-grpc
+    , http2-grpc-proto-lens
+    , http2-grpc-types
+    , lens
+    , lens-family
+    , mwc-random
+    , network-transport
+    , network-transport-tcp
+    , playground
+    , proto-lens
+    , proto-lens-runtime
+    , stm
+    , text
+    , timer-wheel
+    , wai
+    , warp
+    , warp-grpc
+    , warp-tls
+  default-language: Haskell2010
+
+test-suite playground-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_playground
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , bytestring
+    , directory
+    , distributed-process
+    , distributed-static
+    , http2-client-grpc
+    , http2-grpc-proto-lens
+    , http2-grpc-types
+    , lens
+    , lens-family
+    , mwc-random
+    , network-transport
+    , network-transport-tcp
+    , playground
+    , proto-lens
+    , proto-lens-runtime
+    , stm
+    , text
+    , timer-wheel
+    , wai
+    , warp
+    , warp-grpc
+    , warp-tls
+  default-language: Haskell2010

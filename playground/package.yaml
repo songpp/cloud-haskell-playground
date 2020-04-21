@@ -1,0 +1,75 @@
+name:                playground
+version:             0.1.0.0
+github:              "songpp/playground"
+license:             BSD3
+author:              "spp"
+maintainer:          "example@example.com"
+copyright:           "2020 spp"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+data-files: certs/*
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/playground#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- bytestring
+- text
+- directory
+- wai
+- warp
+- warp-tls
+- warp-grpc
+- mwc-random
+- timer-wheel
+- stm
+- http2-client-grpc
+- http2-grpc-types
+- http2-grpc-proto-lens
+- lens-family
+- lens
+- proto-lens
+- proto-lens-runtime
+# cloud haskell
+- distributed-process
+- distributed-static
+- network-transport
+- network-transport-tcp
+
+
+library:
+  source-dirs: 
+    - src
+    - gen
+
+executables:
+  playground-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - playground
+
+tests:
+  playground-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - playground
