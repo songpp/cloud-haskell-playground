@@ -15,8 +15,8 @@ import Network.GRPC.HTTP2.Types
 import Network.GRPC.HTTP2.Encoding (gzip)
 import System.IO (hSetBuffering, stdin, stdout, BufferMode(..))
 
-import Proto.Protos.RaftGrpc
-import Proto.Protos.RaftGrpc_Fields
+import Proto.RaftGrpc
+import Proto.RaftGrpc_Fields
 
 import Paths_playground
 

@@ -1,9 +1,9 @@
-{- This file was auto-generated from protos/raft-grpc.proto by the proto-lens-protoc program. -}
+{- This file was auto-generated from raft-grpc.proto by the proto-lens-protoc program. -}
 {-# LANGUAGE ScopedTypeVariables, DataKinds, TypeFamilies, UndecidableInstances, GeneralizedNewtypeDeriving, MultiParamTypeClasses, FlexibleContexts, FlexibleInstances, PatternSynonyms, MagicHash, NoImplicitPrelude, DataKinds, BangPatterns, TypeApplications#-}
 {-# OPTIONS_GHC -Wno-unused-imports#-}
 {-# OPTIONS_GHC -Wno-duplicate-exports#-}
 {-# OPTIONS_GHC -Wno-dodgy-exports#-}
-module Proto.Protos.RaftGrpc (
+module Proto.RaftGrpc (
         RaftService(..), AppendEntriesPipelineResponse(),
         AppendEntriesRequest(), AppendEntriesResponse(),
         InstallSnapshotRequest(), InstallSnapshotResponse(), LogEntry(),
@@ -37,9 +37,9 @@ import qualified Data.ProtoLens.Runtime.Data.Vector.Unboxed as Data.Vector.Unbox
 import qualified Data.ProtoLens.Runtime.Text.Read as Text.Read
 {- | Fields :
      
-         * 'Proto.Protos.RaftGrpc_Fields.error' @:: Lens' AppendEntriesPipelineResponse Data.Text.Text@
-         * 'Proto.Protos.RaftGrpc_Fields.response' @:: Lens' AppendEntriesPipelineResponse AppendEntriesResponse@
-         * 'Proto.Protos.RaftGrpc_Fields.maybe'response' @:: Lens' AppendEntriesPipelineResponse (Prelude.Maybe AppendEntriesResponse)@ -}
+         * 'Proto.RaftGrpc_Fields.error' @:: Lens' AppendEntriesPipelineResponse Data.Text.Text@
+         * 'Proto.RaftGrpc_Fields.response' @:: Lens' AppendEntriesPipelineResponse AppendEntriesResponse@
+         * 'Proto.RaftGrpc_Fields.maybe'response' @:: Lens' AppendEntriesPipelineResponse (Prelude.Maybe AppendEntriesResponse)@ -}
 data AppendEntriesPipelineResponse
   = AppendEntriesPipelineResponse'_constructor {_AppendEntriesPipelineResponse'error :: !Data.Text.Text,
                                                 _AppendEntriesPipelineResponse'response :: !(Prelude.Maybe AppendEntriesResponse),
@@ -207,13 +207,13 @@ instance Control.DeepSeq.NFData AppendEntriesPipelineResponse where
                    (_AppendEntriesPipelineResponse'response x__) ()))
 {- | Fields :
      
-         * 'Proto.Protos.RaftGrpc_Fields.term' @:: Lens' AppendEntriesRequest Data.Word.Word64@
-         * 'Proto.Protos.RaftGrpc_Fields.leader' @:: Lens' AppendEntriesRequest Data.ByteString.ByteString@
-         * 'Proto.Protos.RaftGrpc_Fields.prevLogEntry' @:: Lens' AppendEntriesRequest Data.Word.Word64@
-         * 'Proto.Protos.RaftGrpc_Fields.prevLogTerm' @:: Lens' AppendEntriesRequest Data.Word.Word64@
-         * 'Proto.Protos.RaftGrpc_Fields.entries' @:: Lens' AppendEntriesRequest [LogEntry]@
-         * 'Proto.Protos.RaftGrpc_Fields.vec'entries' @:: Lens' AppendEntriesRequest (Data.Vector.Vector LogEntry)@
-         * 'Proto.Protos.RaftGrpc_Fields.leaderCommitIndex' @:: Lens' AppendEntriesRequest Data.Word.Word64@ -}
+         * 'Proto.RaftGrpc_Fields.term' @:: Lens' AppendEntriesRequest Data.Word.Word64@
+         * 'Proto.RaftGrpc_Fields.leader' @:: Lens' AppendEntriesRequest Data.ByteString.ByteString@
+         * 'Proto.RaftGrpc_Fields.prevLogEntry' @:: Lens' AppendEntriesRequest Data.Word.Word64@
+         * 'Proto.RaftGrpc_Fields.prevLogTerm' @:: Lens' AppendEntriesRequest Data.Word.Word64@
+         * 'Proto.RaftGrpc_Fields.entries' @:: Lens' AppendEntriesRequest [LogEntry]@
+         * 'Proto.RaftGrpc_Fields.vec'entries' @:: Lens' AppendEntriesRequest (Data.Vector.Vector LogEntry)@
+         * 'Proto.RaftGrpc_Fields.leaderCommitIndex' @:: Lens' AppendEntriesRequest Data.Word.Word64@ -}
 data AppendEntriesRequest
   = AppendEntriesRequest'_constructor {_AppendEntriesRequest'term :: !Data.Word.Word64,
                                        _AppendEntriesRequest'leader :: !Data.ByteString.ByteString,
@@ -539,10 +539,10 @@ instance Control.DeepSeq.NFData AppendEntriesRequest where
                                (_AppendEntriesRequest'leaderCommitIndex x__) ()))))))
 {- | Fields :
      
-         * 'Proto.Protos.RaftGrpc_Fields.term' @:: Lens' AppendEntriesResponse Data.Word.Word64@
-         * 'Proto.Protos.RaftGrpc_Fields.lastLog' @:: Lens' AppendEntriesResponse Data.Word.Word64@
-         * 'Proto.Protos.RaftGrpc_Fields.success' @:: Lens' AppendEntriesResponse Prelude.Bool@
-         * 'Proto.Protos.RaftGrpc_Fields.noRetryBackoff' @:: Lens' AppendEntriesResponse Prelude.Bool@ -}
+         * 'Proto.RaftGrpc_Fields.term' @:: Lens' AppendEntriesResponse Data.Word.Word64@
+         * 'Proto.RaftGrpc_Fields.lastLog' @:: Lens' AppendEntriesResponse Data.Word.Word64@
+         * 'Proto.RaftGrpc_Fields.success' @:: Lens' AppendEntriesResponse Prelude.Bool@
+         * 'Proto.RaftGrpc_Fields.noRetryBackoff' @:: Lens' AppendEntriesResponse Prelude.Bool@ -}
 data AppendEntriesResponse
   = AppendEntriesResponse'_constructor {_AppendEntriesResponse'term :: !Data.Word.Word64,
                                         _AppendEntriesResponse'lastLog :: !Data.Word.Word64,
@@ -757,12 +757,12 @@ instance Control.DeepSeq.NFData AppendEntriesResponse where
                          (_AppendEntriesResponse'noRetryBackoff x__) ()))))
 {- | Fields :
      
-         * 'Proto.Protos.RaftGrpc_Fields.term' @:: Lens' InstallSnapshotRequest Data.Word.Word64@
-         * 'Proto.Protos.RaftGrpc_Fields.leader' @:: Lens' InstallSnapshotRequest Data.ByteString.ByteString@
-         * 'Proto.Protos.RaftGrpc_Fields.lastLogIndex' @:: Lens' InstallSnapshotRequest Data.Word.Word64@
-         * 'Proto.Protos.RaftGrpc_Fields.lastLogTerm' @:: Lens' InstallSnapshotRequest Data.Word.Word64@
-         * 'Proto.Protos.RaftGrpc_Fields.peers' @:: Lens' InstallSnapshotRequest Data.ByteString.ByteString@
-         * 'Proto.Protos.RaftGrpc_Fields.snapshot' @:: Lens' InstallSnapshotRequest Data.ByteString.ByteString@ -}
+         * 'Proto.RaftGrpc_Fields.term' @:: Lens' InstallSnapshotRequest Data.Word.Word64@
+         * 'Proto.RaftGrpc_Fields.leader' @:: Lens' InstallSnapshotRequest Data.ByteString.ByteString@
+         * 'Proto.RaftGrpc_Fields.lastLogIndex' @:: Lens' InstallSnapshotRequest Data.Word.Word64@
+         * 'Proto.RaftGrpc_Fields.lastLogTerm' @:: Lens' InstallSnapshotRequest Data.Word.Word64@
+         * 'Proto.RaftGrpc_Fields.peers' @:: Lens' InstallSnapshotRequest Data.ByteString.ByteString@
+         * 'Proto.RaftGrpc_Fields.snapshot' @:: Lens' InstallSnapshotRequest Data.ByteString.ByteString@ -}
 data InstallSnapshotRequest
   = InstallSnapshotRequest'_constructor {_InstallSnapshotRequest'term :: !Data.Word.Word64,
                                          _InstallSnapshotRequest'leader :: !Data.ByteString.ByteString,
@@ -1063,8 +1063,8 @@ instance Control.DeepSeq.NFData InstallSnapshotRequest where
                                (_InstallSnapshotRequest'snapshot x__) ()))))))
 {- | Fields :
      
-         * 'Proto.Protos.RaftGrpc_Fields.term' @:: Lens' InstallSnapshotResponse Data.Word.Word64@
-         * 'Proto.Protos.RaftGrpc_Fields.success' @:: Lens' InstallSnapshotResponse Prelude.Bool@ -}
+         * 'Proto.RaftGrpc_Fields.term' @:: Lens' InstallSnapshotResponse Data.Word.Word64@
+         * 'Proto.RaftGrpc_Fields.success' @:: Lens' InstallSnapshotResponse Prelude.Bool@ -}
 data InstallSnapshotResponse
   = InstallSnapshotResponse'_constructor {_InstallSnapshotResponse'term :: !Data.Word.Word64,
                                           _InstallSnapshotResponse'success :: !Prelude.Bool,
@@ -1201,10 +1201,10 @@ instance Control.DeepSeq.NFData InstallSnapshotResponse where
                    (_InstallSnapshotResponse'success x__) ()))
 {- | Fields :
      
-         * 'Proto.Protos.RaftGrpc_Fields.index' @:: Lens' LogEntry Data.Word.Word64@
-         * 'Proto.Protos.RaftGrpc_Fields.term' @:: Lens' LogEntry Data.Word.Word64@
-         * 'Proto.Protos.RaftGrpc_Fields.type'' @:: Lens' LogEntry LogEntryType@
-         * 'Proto.Protos.RaftGrpc_Fields.data'' @:: Lens' LogEntry Data.ByteString.ByteString@ -}
+         * 'Proto.RaftGrpc_Fields.index' @:: Lens' LogEntry Data.Word.Word64@
+         * 'Proto.RaftGrpc_Fields.term' @:: Lens' LogEntry Data.Word.Word64@
+         * 'Proto.RaftGrpc_Fields.type'' @:: Lens' LogEntry LogEntryType@
+         * 'Proto.RaftGrpc_Fields.data'' @:: Lens' LogEntry Data.ByteString.ByteString@ -}
 data LogEntry
   = LogEntry'_constructor {_LogEntry'index :: !Data.Word.Word64,
                            _LogEntry'term :: !Data.Word.Word64,
@@ -1503,7 +1503,7 @@ instance Control.DeepSeq.NFData LogEntryType where
   rnf x__ = Prelude.seq x__ ()
 {- | Fields :
      
-         * 'Proto.Protos.RaftGrpc_Fields.peerName' @:: Lens' PeerNameContainer Data.Text.Text@ -}
+         * 'Proto.RaftGrpc_Fields.peerName' @:: Lens' PeerNameContainer Data.Text.Text@ -}
 data PeerNameContainer
   = PeerNameContainer'_constructor {_PeerNameContainer'peerName :: !Data.Text.Text,
                                     _PeerNameContainer'_unknownFields :: !Data.ProtoLens.FieldSet}
@@ -1619,10 +1619,10 @@ instance Control.DeepSeq.NFData PeerNameContainer where
              (Control.DeepSeq.deepseq (_PeerNameContainer'peerName x__) ())
 {- | Fields :
      
-         * 'Proto.Protos.RaftGrpc_Fields.term' @:: Lens' RequestVoteRequest Data.Word.Word64@
-         * 'Proto.Protos.RaftGrpc_Fields.candidate' @:: Lens' RequestVoteRequest Data.ByteString.ByteString@
-         * 'Proto.Protos.RaftGrpc_Fields.lastLogIndex' @:: Lens' RequestVoteRequest Data.Word.Word64@
-         * 'Proto.Protos.RaftGrpc_Fields.lastLogTerm' @:: Lens' RequestVoteRequest Data.Word.Word64@ -}
+         * 'Proto.RaftGrpc_Fields.term' @:: Lens' RequestVoteRequest Data.Word.Word64@
+         * 'Proto.RaftGrpc_Fields.candidate' @:: Lens' RequestVoteRequest Data.ByteString.ByteString@
+         * 'Proto.RaftGrpc_Fields.lastLogIndex' @:: Lens' RequestVoteRequest Data.Word.Word64@
+         * 'Proto.RaftGrpc_Fields.lastLogTerm' @:: Lens' RequestVoteRequest Data.Word.Word64@ -}
 data RequestVoteRequest
   = RequestVoteRequest'_constructor {_RequestVoteRequest'term :: !Data.Word.Word64,
                                      _RequestVoteRequest'candidate :: !Data.ByteString.ByteString,
@@ -1839,9 +1839,9 @@ instance Control.DeepSeq.NFData RequestVoteRequest where
                          (_RequestVoteRequest'lastLogTerm x__) ()))))
 {- | Fields :
      
-         * 'Proto.Protos.RaftGrpc_Fields.term' @:: Lens' RequestVoteResponse Data.Word.Word64@
-         * 'Proto.Protos.RaftGrpc_Fields.peers' @:: Lens' RequestVoteResponse Data.ByteString.ByteString@
-         * 'Proto.Protos.RaftGrpc_Fields.granted' @:: Lens' RequestVoteResponse Prelude.Bool@ -}
+         * 'Proto.RaftGrpc_Fields.term' @:: Lens' RequestVoteResponse Data.Word.Word64@
+         * 'Proto.RaftGrpc_Fields.peers' @:: Lens' RequestVoteResponse Data.ByteString.ByteString@
+         * 'Proto.RaftGrpc_Fields.granted' @:: Lens' RequestVoteResponse Prelude.Bool@ -}
 data RequestVoteResponse
   = RequestVoteResponse'_constructor {_RequestVoteResponse'term :: !Data.Word.Word64,
                                       _RequestVoteResponse'peers :: !Data.ByteString.ByteString,

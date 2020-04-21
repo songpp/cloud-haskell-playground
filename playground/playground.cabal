@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 40cd89e330ec65a736cd1affd7643ee617f09d167cb57d28e726d00731cfc3d4
+-- hash: 218ae4e3a74ce9dda4609abd5a898c66345e0991f5ccab7e8ffaf4aac7d81519
 
 name:           playground
 version:        0.1.0.0
@@ -43,8 +43,8 @@ library
       Cluster
       GrpcServer
       Lib
-      Proto.Protos.RaftGrpc
-      Proto.Protos.RaftGrpc_Fields
+      Proto.RaftGrpc
+      Proto.RaftGrpc_Fields
   other-modules:
       Paths_playground
   hs-source-dirs:
