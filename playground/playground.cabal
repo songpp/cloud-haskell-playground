@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: d9930b3e5a8a83a1eac6675eeda847e349c7a8144e363cdb416528a3eabc022a
+-- hash: a7c518eb08bbb8ba50d1884f3903beb487f57da285a8ad6def562b2fbdf63c79
 
 name:           playground
 version:        0.1.0.0
@@ -43,6 +43,7 @@ library
       Cluster
       GrpcServer
       Lib
+      Streaming
       Proto.RaftGrpc
       Proto.RaftGrpc_Fields
   other-modules:
@@ -57,6 +58,7 @@ library
     , distributed-process
     , distributed-process-simplelocalnet
     , distributed-static
+    , http-conduit
     , http2-client-grpc
     , http2-grpc-proto-lens
     , http2-grpc-types
@@ -67,7 +69,9 @@ library
     , network-transport-tcp
     , proto-lens
     , proto-lens-runtime
+    , refined
     , stm
+    , streamly
     , text
     , timer-wheel
     , wai
@@ -90,6 +94,7 @@ executable playground-exe
     , distributed-process
     , distributed-process-simplelocalnet
     , distributed-static
+    , http-conduit
     , http2-client-grpc
     , http2-grpc-proto-lens
     , http2-grpc-types
@@ -101,7 +106,9 @@ executable playground-exe
     , playground
     , proto-lens
     , proto-lens-runtime
+    , refined
     , stm
+    , streamly
     , text
     , timer-wheel
     , wai
@@ -125,6 +132,7 @@ test-suite playground-test
     , distributed-process
     , distributed-process-simplelocalnet
     , distributed-static
+    , http-conduit
     , http2-client-grpc
     , http2-grpc-proto-lens
     , http2-grpc-types
@@ -136,7 +144,9 @@ test-suite playground-test
     , playground
     , proto-lens
     , proto-lens-runtime
+    , refined
     , stm
+    , streamly
     , text
     , timer-wheel
     , wai

@@ -6,3 +6,4 @@
 :set -package network-transport-tcp
 :set -package network-transport-tests
 :set -package playground
+:set -package distributed-process-simplelocalnet

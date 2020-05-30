@@ -4,14 +4,10 @@ module GrpcServer where
 import Prelude hiding (error)
 import Network.GRPC.Server
 import Control.Lens
-import Control.Concurrent (threadDelay)
-import Control.Monad (void)
 import Data.ProtoLens.Message (defMessage)
-import Network.Wai
-import Network.Wai.Handler.WarpTLS (tlsSettings, tlsSettingsChain, onInsecure, OnInsecure(..))
+import Network.Wai.Handler.WarpTLS (tlsSettingsChain, onInsecure, OnInsecure(..))
 import Network.Wai.Handler.Warp (setPort, setServerName, defaultSettings, run)
 import Network.GRPC.HTTP2.ProtoLens
-import Network.GRPC.HTTP2.Types
 import Network.GRPC.HTTP2.Encoding (gzip)
 import System.IO (hSetBuffering, stdin, stdout, BufferMode(..))
 
@@ -46,6 +42,7 @@ handleAppendEntries req input = return $ defMessage & term .~ (input ^. term + 1
 handleInstallSnapshot :: UnaryHandler IO InstallSnapshotRequest InstallSnapshotResponse
 handleInstallSnapshot req input = return $ defMessage & term .~ (input ^. term + 1)
 
+handlers :: [ServiceHandler]
 handlers = [
     unary (RPC :: RPC RaftService "requestVote") handleVoteRequest,
     unary (RPC :: RPC RaftService "appendEntries") handleAppendEntries,

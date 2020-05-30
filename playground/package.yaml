@@ -46,7 +46,9 @@ dependencies:
 - network-transport
 - network-transport-tcp
 - distributed-process-simplelocalnet
-
+- refined
+- streamly
+- http-conduit
 
 
 library:
