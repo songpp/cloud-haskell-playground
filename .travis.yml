@@ -1,8 +1,9 @@
-language: haskell
-ghc:
-  - "8.8.3"
-
+# Choose a build environment
 dist: xenial
+
+# Do not choose a language; we provide our own build tools.
+language: generic
+
 
 cache:
   directories:
@@ -18,6 +19,8 @@ before_install:
 - mkdir -p ~/.local/bin
 - export PATH=$HOME/.local/bin:$PATH
 - travis_retry curl -L https://get.haskellstack.org/stable/linux-x86_64.tar.gz | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
+- stack upgrade --git
+
 
 install:
 # Build dependencies
